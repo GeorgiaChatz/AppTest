@@ -143,7 +143,6 @@ import pandas as pd
 from PIL import Image
 import unicodedata
 import requests
-from io import BytesIO
 import base64
 import datetime
 from io import BytesIO
