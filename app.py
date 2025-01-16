@@ -192,7 +192,7 @@ REPO_NAME = "AppTest"                     # Replace with your repo name
 all_names = [
     "Aspa", "Μαρία Παλλικάρη", "Μαριάννα Στεφανοπούλου", "Θεοδώρα", "Χριστίνα",
     "Μαρία Κανναβού", "Άννα Κανναβού", "Άννα Μπουργανού", "Μαρία Παπαγεωργίου",
-    "Αριάδνη", "Μαρία Φυτράκη", "Στεφανία", "Έλλη", "Μπρουνίλντα", "Αναστασία",
+    "Αριάδνη", "Μαρία Φυτράκη", "Στεφανία", "Έλλη", "Μπρουνίλντα", "Αναστασία Κουμπάρα",
     "Μαρία Μητροπούλου", "Μιχαέλα", "Αδερφή νύφης"
 ]
 
@@ -203,13 +203,43 @@ color_options = [
 
 all_sizes = {"XS", "S", "M", "L", "XL"}
 
+drive_links = {
+    "Aspa": "https://drive.google.com/drive/folders/1IoAw9ST8qsI_E1rp-p81s6w0ED7rEZXb?usp=drive_link",
+    "Μαρία Παλλικάρη": "https://drive.google.com/drive/folders/1IoAw9ST8qsI_E1rp-p81s6w0ED7rEZXb?usp=drive_link",
+    "Μαριάννα Στεφανοπούλου": "https://drive.google.com/drive/folders/1IoAw9ST8qsI_E1rp-p81s6w0ED7rEZXb?usp=drive_link",
+    "Θεοδώρα": "https://drive.google.com/drive/folders/1IoAw9ST8qsI_E1rp-p81s6w0ED7rEZXb?usp=drive_link",
+    "Χριστίνα": "https://drive.google.com/drive/folders/1IoAw9ST8qsI_E1rp-p81s6w0ED7rEZXb?usp=drive_link",
+    "Μαρία Κανναβού": "https://drive.google.com/drive/folders/1mL6_Gmo92sjqaWuusX5CkG4VMWeRERM-?usp=drive_link",
+    "Άννα Κανναβού": "https://drive.google.com/drive/folders/1mL6_Gmo92sjqaWuusX5CkG4VMWeRERM-?usp=drive_link",
+    "Μαρία Παπαγεωργίου": "https://drive.google.com/drive/folders/1mL6_Gmo92sjqaWuusX5CkG4VMWeRERM-?usp=drive_link",
+    "Άννα Μπουργανού": "https://drive.google.com/drive/folders/1--7s-6NwMYSp4C0jApconJkuE8-Rx6v7?usp=drive_link",
+    "Στεφανία": "https://drive.google.com/drive/folders/1pJgVjoWIWV07_ygCyOadGHDhG9ZL22vz?usp=drive_link",
+    "Έλλη": "https://drive.google.com/drive/folders/1pJgVjoWIWV07_ygCyOadGHDhG9ZL22vz?usp=drive_link",
+    "Μπρουνίλντα": "https://drive.google.com/drive/folders/1pJgVjoWIWV07_ygCyOadGHDhG9ZL22vz?usp=drive_link",
+    "Αναστασία": "https://drive.google.com/drive/folders/1pJgVjoWIWV07_ygCyOadGHDhG9ZL22vz?usp=drive_link",
+    "Μαρία Μητροπούλου": "https://drive.google.com/drive/folders/1pJgVjoWIWV07_ygCyOadGHDhG9ZL22vz?usp=drive_link",
+    "Αριάδνη": "https://drive.google.com/drive/folders/1ndrBXu0JsgXRwT1yvQcBr0RUsqJ2PU7Y?usp=drive_link",
+    "Μαρία Φυτράκη": "https://drive.google.com/drive/folders/1ndrBXu0JsgXRwT1yvQcBr0RUsqJ2PU7Y?usp=drive_link",
+    "Μιχαέλα": "https://drive.google.com/drive/folders/1pJgVjoWIWV07_ygCyOadGHDhG9ZL22vz?usp=drive_link",
+    "Αδερφή νύφης": "https://drive.google.com/drive/folders/1nq3sgxVaypdPJpk59ivic-Keipv9GWVq?usp=drive_link"
+}
+
 # =============== PAGE DESIGN =============== #
 st.set_page_config(page_title="Bachelor Party Planner")
 
 st.markdown("""<style> body { background-color: #f7e1d7; color: #4e4e50; } h1, h3 { color: #8e44ad; } </style>""", unsafe_allow_html=True)
 
+# =============== TITLE & INTRO =============== #
 st.title("Bachelor Party Planner")
 st.header("Welcome to the Bachelor Party App!")
+
+st.write("1) **Διάλεξε το όνομά σου** από τη λίστα παρακάτω.")
+st.write("2) **Δες το φούτερ** που θα αγοράσουμε: [Φούτερ & Διαθέσιμα χρώματα](https://www.livardas.gr/el/fouter/2077-17147-sols-slam-13251.html)")
+st.write("3) **Διάλεξε ένα από τα 4 σχέδια** που θέλεις να τυπώσουμε στο φούτερ σου")
+st.write("4) **Γράψε μια ευχή** για τη νύφη.")
+st.write("5) **Γράψε πώς γνωριστήκατε** ή μια ιστορία που θέλεις να μοιραστείς.")
+st.write("6) **Ανέβασε φωτογραφίες με την Άννα** εάν είναι λίγες ανεβασέ τες εδώ διαφορετικά κάνε αντιγραφή το link που θα εμφανιστεί στο τέλος της καταχώρισης και ανεβασέ τες όποτε έχεις χρόνο**.")
+
 
 # =============== FORM =============== #
 with st.form("party_form"):
@@ -227,7 +257,7 @@ with st.form("party_form"):
             img = Image.open(BytesIO(response.content))
             st.image(img, caption=label, width=120)
 
-    wish = st.text_area("Γράψε μια ευχή για τη νύφη:")
+    wish = st.text_area("Γράψε μας μια ευχή για τη νύφη:")
     story = st.text_area("Πες μας πώς γνωριστήκατε ή μια ιστορία:")
     uploaded_files = st.file_uploader("Ανέβασε φωτογραφίες (πολλαπλές):", accept_multiple_files=True)
 
@@ -263,10 +293,15 @@ if submitted:
                 if photo_url:
                     photo_urls.append(photo_url)
 
-            st.write("### Uploaded Photos:")
-            for url in photo_urls:
-                st.markdown(f"- [View Photo]({url})")
+            # st.write("### Uploaded Photos:")
+            # for url in photo_urls:
+            #     st.markdown(f"- [View Photo]({url})")
+        drive_link = drive_links[name]
+        st.markdown(f"[Αυτό είναι το google drive link σου]({drive_link})")
+        st.success(f"Ευχαριστούμε πολύ, {name}! Παρακαλώ κάντε copy paste το link που θα ανεβάσετε τις φωτογραφίες")
+        st.write("### Η συμμετοχή σου έχει ως εξής:")
+        st.write(pd.DataFrame([new_data]))
+        st.success(f"Ευχαριστούμε πολύ, {name}! Ανυπομονούμε να σας δούμε όλες εκεί!")
 
-        st.success(f"Ευχαριστούμε πολύ, {name}!")
-        if csv_url:
-            st.markdown(f"[View Your Submission]({csv_url})")
+        # if csv_url:
+        #     st.markdown(f"[View Your Submission]({csv_url})")
