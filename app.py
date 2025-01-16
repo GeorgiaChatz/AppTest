@@ -1,4 +1,4 @@
-# import streamlit as st
+# import .streamlit as st
 # import pandas as pd
 # from PIL import Image
 # import unicodedata
@@ -150,24 +150,24 @@ import sendgrid
 from sendgrid.helpers.mail import Mail
 
 # =============== UTILITIES =============== #
-
-def send_email(email, link):
-    """Send an email with the Google Drive link."""
-    sg = sendgrid.SendGridAPIClient(api_key=st.secrets["SENDGRID_API_KEY"])
-    subject = "PHOTOS BRIDE"
-    content = f"Hello! You can upload your photos using the following link: {link}"
-    message = Mail(
-        from_email="georgiachatzilygeroudi@gmail.com",  # Replace with your email
-        to_emails=email,
-        subject=subject,
-        html_content=f"<p>{content}</p>",
-    )
-    try:
-        sg.send(message)
-        return True
-    except Exception as e:
-        st.error(f"Error sending email: {e}")
-        return False
+#
+# def send_email(email, link):
+#     """Send an email with the Google Drive link."""
+#     sg = sendgrid.SendGridAPIClient(api_key=st.secrets["SENDGRID_API_KEY"])
+#     subject = "PHOTOS BRIDE"
+#     content = f"Hello! You can upload your photos using the following link: {link}"
+#     message = Mail(
+#         from_email="georgiachatzilygeroudi@gmail.com",  # Replace with your email
+#         to_emails=email,
+#         subject=subject,
+#         html_content=f"<p>{content}</p>",
+#     )
+#     try:
+#         sg.send(message)
+#         return True
+#     except Exception as e:
+#         st.error(f"Error sending email: {e}")
+#         return False
 def normalize_text(text):
     """Normalize text to avoid encoding issues."""
     return unicodedata.normalize("NFKC", text).strip()
@@ -318,14 +318,8 @@ if submitted:
             #     st.markdown(f"- [View Photo]({url})")
         drive_link = drive_links[name]
         st.markdown(f"[Αυτό είναι το google drive link σου]({drive_link})")
-        email = st.text_input("Δώσε μας το email σου για να σου στείλουμε το link:")
-        if email and st.button("Send Email"):
-            if send_email(email, drive_link):
-                st.success(f"The link has been sent to {email}.")
-            else:
-                st.error("Failed to send the email.")
-
-
+        # email = st.text_input("Δώσε μας το email σου για να σου στείλουμε το link:")
+        # send_email(email, drive_link)
 
         st.success(f"Ευχαριστούμε πολύ, {name} , ανυπομονούμε για την ημέρα εκείνη! Μην ξεχάσεις να κάνεις copy paste το link που θα ανεβάσετε τις φωτογραφίες")
         # st.write("### Η συμμετοχή σου έχει ως εξής:")
