@@ -157,7 +157,7 @@ def send_email(email, link):
     subject = "PHOTOS BRIDE"
     content = f"Hello! You can upload your photos using the following link: {link}"
     message = Mail(
-        from_email="your-email@example.com",  # Replace with your email
+        from_email="georgiachatzilygeroudi@gmail.com",  # Replace with your email
         to_emails=email,
         subject=subject,
         html_content=f"<p>{content}</p>",
