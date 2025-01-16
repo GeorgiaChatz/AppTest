@@ -298,10 +298,9 @@ if submitted:
             #     st.markdown(f"- [View Photo]({url})")
         drive_link = drive_links[name]
         st.markdown(f"[Αυτό είναι το google drive link σου]({drive_link})")
-        st.success(f"Ευχαριστούμε πολύ, {name}! Παρακαλώ κάντε copy paste το link που θα ανεβάσετε τις φωτογραφίες")
-        st.write("### Η συμμετοχή σου έχει ως εξής:")
-        st.write(pd.DataFrame([new_data]))
-        st.success(f"Ευχαριστούμε πολύ, {name}! Ανυπομονούμε να σας δούμε όλες εκεί!")
+        st.success(f"Ευχαριστούμε πολύ, {name} , ανυπομονούμε για την ημέρα εκείνη! Μην ξεχάσεις να κάνεις copy paste το link που θα ανεβάσετε τις φωτογραφίες")
+        # st.write("### Η συμμετοχή σου έχει ως εξής:")
+        # st.write(pd.DataFrame([new_data]))
 
         # if csv_url:
         #     st.markdown(f"[View Your Submission]({csv_url})")
