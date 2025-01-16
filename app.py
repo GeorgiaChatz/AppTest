@@ -146,7 +146,6 @@ import requests
 from io import BytesIO
 import base64
 import datetime
-import qrcode
 from io import BytesIO
 import sendgrid
 from sendgrid.helpers.mail import Mail
