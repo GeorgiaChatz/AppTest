@@ -146,6 +146,8 @@ import requests
 from io import BytesIO
 import base64
 import datetime
+import qrcode
+from io import BytesIO
 
 # =============== UTILITIES =============== #
 def normalize_text(text):
@@ -298,6 +300,22 @@ if submitted:
             #     st.markdown(f"- [View Photo]({url})")
         drive_link = drive_links[name]
         st.markdown(f"[Αυτό είναι το google drive link σου]({drive_link})")
+
+        # QR Code for the link
+        st.write("### Στείλε το link στο κινητό σου:")
+        qr = qrcode.QRCode()
+        qr.add_data(drive_link)
+        qr_image = qr.make_image(fill_color="black", back_color="white")
+        buffer = BytesIO()
+        qr_image.save(buffer)
+        st.image(buffer.getvalue(), caption="Scan this QR Code to open the link", width=200)
+
+        viber_message = f"viber://forward?text=Μπορείς να ανεβάσεις τις φωτογραφίες σου εδώ: {drive_link}"
+        col2 = st.columns(2)
+        with col2:
+            st.markdown(f"[Share on Viber]({viber_message})")
+
+
         st.success(f"Ευχαριστούμε πολύ, {name} , ανυπομονούμε για την ημέρα εκείνη! Μην ξεχάσεις να κάνεις copy paste το link που θα ανεβάσετε τις φωτογραφίες")
         # st.write("### Η συμμετοχή σου έχει ως εξής:")
         # st.write(pd.DataFrame([new_data]))
