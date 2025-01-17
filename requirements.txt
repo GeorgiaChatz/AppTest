@@ -3,5 +3,4 @@ pandas
 requests
 pillow
 sendgrid
-smtplib
-email
+
