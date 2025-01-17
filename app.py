@@ -146,11 +146,8 @@ import requests
 import base64
 import datetime
 from io import BytesIO
-import sendgrid
-from sendgrid.helpers.mail import Mail
 import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+import yagmail
 
 def normalize_text(text):
     """Normalize text to avoid encoding issues."""
@@ -318,27 +315,21 @@ if submitted:
                     
         drive_link = drive_links[name]
         st.markdown(f"[Αυτό είναι το google drive link σου]({drive_link})")
-        email = st.text_input("Enter your email:")
-        sender_email = "gogo_hatz@hotmail.com"  # Replace with your email
-        sender_password = "Georgia@@1997!"       # Replace with your email password
-        recipient_email = email
+       # Send the PDF via email with yagmail
+        yag = yagmail.SMTP('georgiachatzilygeroudi@gmail.com', 'Georgia@@1997!', host='smtp.gmail.com', port=587, smtp_starttls=True, smtp_ssl=False)
 
-        # Create the email content
-        subject = "Your Google Drive Link"
-        body = f"Hello,\n\nHere is your Google Drive link: {drive_link}\n\nBest regards,\nYour Team"
+        subject = "Report da Streamlit"
 
-        # Set up the MIME
-        message = MIMEMultipart()
-        message["From"] = sender_email
-        message["To"] = recipient_email
-        message["Subject"] = subject
-        message.attach(MIMEText(body, "plain"))
-
-        # Connect to the server and send the email
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:
-            server.starttls()
-            server.login(sender_email, sender_password)
-            server.sendmail(sender_email, recipient_email, message.as_string())
+        # Enclose the PDF
+        yag.send(
+        to='gogo_hatz@hotmail.com',
+        subject=subject,
+        contents="Report attached.",
+        attachments=drive_link
+        )
+        
+        # Close SMTP connection
+        yag.close()
 
         # email = st.text_input("Δώσε μας το email σου για να σου στείλουμε το link:")
         # send_email(email, drive_link)
