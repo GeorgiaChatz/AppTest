@@ -244,6 +244,10 @@ drive_links = {
     "Αδερφή νύφης": "https://drive.google.com/drive/folders/1nq3sgxVaypdPJpk59ivic-Keipv9GWVq?usp=drive_link"
 }
 
+# =============== PAGE DESIGN =============== #
+st.set_page_config(page_title="Bachelor Party Planner")
+
+st.markdown("""<style> body { background-color: #f7e1d7; color: #4e4e50; } h1, h3 { color: #8e44ad; } </style>""", unsafe_allow_html=True)
 page_bg_img = '''
 <style>
 body {
@@ -254,12 +258,6 @@ background-size: cover;
 '''
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
-
-# =============== PAGE DESIGN =============== #
-st.set_page_config(page_title="Bachelor Party Planner")
-
-st.markdown("""<style> body { background-color: #f7e1d7; color: #4e4e50; } h1, h3 { color: #8e44ad; } </style>""", unsafe_allow_html=True)
-
 # =============== TITLE & INTRO =============== #
 st.title("Bachelor Party Planner")
 st.header("Welcome to the Bachelor Party App!")
