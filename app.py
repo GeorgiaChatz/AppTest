@@ -247,27 +247,32 @@ drive_links = {
 # =============== PAGE DESIGN =============== #
 st.set_page_config(page_title="Bachelor Party Planner")
 
-@st.cache(allow_output_mutation=True)
-def get_base64_of_bin_file(bin_file):
-    with open(bin_file, 'rb') as f:
-        data = f.read()
-    return base64.b64encode(data).decode()
+def get_base64_of_url_image(url):
+    """Download an image from a URL and encode it in base64."""
+    response = requests.get(url)
+    if response.status_code == 200:
+        return base64.b64encode(response.content).decode()
+    else:
+        st.error("Failed to fetch the image. Check the URL.")
+        return None
 
-def set_png_as_page_bg(png_file):
-    bin_str = get_base64_of_bin_file(png_file)
-    page_bg_img = '''
-    <style>
-    body {
-    background-image: url("data:image/png;base64,%s");
-    background-size: cover;
-    }
-    </style>
-    ''' % bin_str
-    
-    st.markdown(page_bg_img, unsafe_allow_html=True)
-    return
+def set_png_as_page_bg(image_url):
+    """Set an image from a URL as the page background."""
+    bin_str = get_base64_of_url_image(image_url)
+    if bin_str:
+        page_bg_img = f'''
+        <style>
+        body {{
+        background-image: url("data:image/png;base64,{bin_str}");
+        background-size: cover;
+        }}
+        </style>
+        '''
+        st.markdown(page_bg_img, unsafe_allow_html=True)
 
-set_png_as_page_bg('"https://drive.google.com/uc?id=1yT-IyoU1bK_VnMg_ymRVn_1CLTdxoXkO"')
+# Example Google Drive URL (update with your own URL)
+google_drive_image_url = "https://drive.google.com/uc?id=1yT-IyoU1bK_VnMg_ymRVn_1CLTdxoXkO"
+set_png_as_page_bg(google_drive_image_url)
 # =============== TITLE & INTRO =============== #
 st.title("Bachelor Party Planner")
 st.header("Welcome to the Bachelor Party App!")
