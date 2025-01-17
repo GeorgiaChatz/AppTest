@@ -319,7 +319,7 @@ if submitted:
         drive_link = drive_links[name]
         st.markdown(f"[Αυτό είναι το google drive link σου]({drive_link})")
         email = st.text_input("Enter your email:")
-        sender_email = "georgiachatzilygeroudi@gmail.com"  # Replace with your email
+        sender_email = "gogo_hatz@hotmail.com"  # Replace with your email
         sender_password = "Georgia@@1997!"       # Replace with your email password
         recipient_email = email
 
