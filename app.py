@@ -247,7 +247,7 @@ def set_background(image_url):
 
 # Example image URL
 # background_image_url = "https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg"
-background_image_url = "https://images.pexels.com/photos/518245/pexels-photo-518245.jpeg"
+background_image_url = "https://images.pexels.com/photos/53265/pexels-photo-53265.jpeg"
 set_background(background_image_url)
 
 # =============== TITLE & INTRO =============== #
