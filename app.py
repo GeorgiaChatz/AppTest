@@ -148,26 +148,10 @@ import datetime
 from io import BytesIO
 import sendgrid
 from sendgrid.helpers.mail import Mail
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 
-# =============== UTILITIES =============== #
-#
-# def send_email(email, link):
-#     """Send an email with the Google Drive link."""
-#     sg = sendgrid.SendGridAPIClient(api_key=st.secrets["SENDGRID_API_KEY"])
-#     subject = "PHOTOS BRIDE"
-#     content = f"Hello! You can upload your photos using the following link: {link}"
-#     message = Mail(
-#         from_email="georgiachatzilygeroudi@gmail.com",  # Replace with your email
-#         to_emails=email,
-#         subject=subject,
-#         html_content=f"<p>{content}</p>",
-#     )
-#     try:
-#         sg.send(message)
-#         return True
-#     except Exception as e:
-#         st.error(f"Error sending email: {e}")
-#         return False
 def normalize_text(text):
     """Normalize text to avoid encoding issues."""
     return unicodedata.normalize("NFKC", text).strip()
@@ -331,32 +315,30 @@ if submitted:
                 photo_url = upload_to_github(file.read(), photo_path, f"Upload photo {file.name}", GITHUB_TOKEN, REPO_OWNER, REPO_NAME)
                 if photo_url:
                     photo_urls.append(photo_url)
+                    
+        drive_link = drive_links[name]
+        st.markdown(f"[Αυτό είναι το google drive link σου]({drive_link})")
+        email = st.text_input("Enter your email:")
+        sender_email = "georgiachatzilygeroudi@gmail.com"  # Replace with your email
+        sender_password = "Georgia@@1997!"       # Replace with your email password
+        recipient_email = email
 
-            # st.write("### Uploaded Photos:")
-            # for url in photo_urls:
-            #     st.markdown(f"- [View Photo]({url})")
-        # drive_link = drive_links[name]
-        # st.markdown(f"[Αυτό είναι το google drive link σου]({drive_link})")
-        def clickable_copyable_link(text, link):
-            st.markdown(
-            f'''
-            <script>
-            function copyToClipboard(text) {{
-                navigator.clipboard.writeText(text).then(function() {{
-                    alert("The link has been copied to your clipboard: " + text);
-                }}, function(err) {{
-                    console.error("Could not copy text: ", err);
-                }});
-            }}
-            </script>
-            <a href="{link}" target="_blank" onclick="copyToClipboard("{link}")">{text}</a>
-            ''',
-            unsafe_allow_html=True,
-            )
+        # Create the email content
+        subject = "Your Google Drive Link"
+        body = f"Hello,\n\nHere is your Google Drive link: {drive_link}\n\nBest regards,\nYour Team"
 
-# Usage example
-        drive_link = "https://drive.google.com/drive/folders/example-link-id"
-        clickable_copyable_link("Αυτό είναι το google drive link σου", drive_link)
+        # Set up the MIME
+        message = MIMEMultipart()
+        message["From"] = sender_email
+        message["To"] = recipient_email
+        message["Subject"] = subject
+        message.attach(MIMEText(body, "plain"))
+
+        # Connect to the server and send the email
+        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+            server.starttls()
+            server.login(sender_email, sender_password)
+            server.sendmail(sender_email, recipient_email, message.as_string())
 
         # email = st.text_input("Δώσε μας το email σου για να σου στείλουμε το link:")
         # send_email(email, drive_link)
