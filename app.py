@@ -335,8 +335,29 @@ if submitted:
             # st.write("### Uploaded Photos:")
             # for url in photo_urls:
             #     st.markdown(f"- [View Photo]({url})")
-        drive_link = drive_links[name]
-        st.markdown(f"[Αυτό είναι το google drive link σου]({drive_link})")
+        # drive_link = drive_links[name]
+        # st.markdown(f"[Αυτό είναι το google drive link σου]({drive_link})")
+        def clickable_copyable_link(text, link):
+            st.markdown(
+            f'''
+            <script>
+            function copyToClipboard(text) {{
+                navigator.clipboard.writeText(text).then(function() {{
+                    alert("The link has been copied to your clipboard: " + text);
+                }}, function(err) {{
+                    console.error("Could not copy text: ", err);
+                }});
+            }}
+            </script>
+            <a href="{link}" target="_blank" onclick="copyToClipboard("{link}")">{text}</a>
+            ''',
+            unsafe_allow_html=True,
+            )
+
+# Usage example
+        drive_link = "https://drive.google.com/drive/folders/example-link-id"
+        clickable_copyable_link("Αυτό είναι το google drive link σου", drive_link)
+
         # email = st.text_input("Δώσε μας το email σου για να σου στείλουμε το link:")
         # send_email(email, drive_link)
         # st.markdown(
