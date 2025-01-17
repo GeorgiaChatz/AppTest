@@ -324,8 +324,7 @@ if submitted:
         yag.send(
         to='gogo_hatz@hotmail.com',
         subject=subject,
-        contents="Report attached.",
-        attachments=drive_link
+        contents=f"Hello,\n\nHere is the Google Drive link you requested:\n\n{drive_link}\n\nBest regards,\nYour App"
         )
         
         # Close SMTP connection
