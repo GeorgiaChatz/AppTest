@@ -265,7 +265,7 @@ def set_background(image_url):
     )
 
 # Example image URL
-background_image_url = "https://drive.google.com/uc?id=1yT-IyoU1bK_VnMg_ymRVn_1CLTdxoXkO"
+background_image_url = "https://i.imgur.com/sG59bDz.jpeg"
 set_background(background_image_url)
 
 # =============== TITLE & INTRO =============== #
