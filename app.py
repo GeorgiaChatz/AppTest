@@ -277,17 +277,17 @@ st.write("2) **Δες το φούτερ** που θα φορέσουμε: ➜ [�
 st.write("3) **Διάλεξε ένα από τα 4 σχέδια** που θέλεις να τυπώσουμε στο φούτερ σου 🖋")
 st.write("4) **Γράψε μια ευχή** για την Αννούλα και τη νέα της αρχή 💝")
 st.write("5) **Γράψε πώς γνωριστήκατε** ή μια ιστορία που θέλεις να μοιραστείς👭")
-st.write("6) **Ανέβασε προσωπικές σας φωτογραφίες** Έχεις δύο επιλογές: ✔️  Ανέβασε τες εδώ στη πλατφόρμα ✔️  Στο τέλος της καταχώρισης θα σου εμφανιστεί ένα link, κάντο copy και ανέβασε τες εκεί με την ησυχία σου")
+st.write("6) **Ανέβασε προσωπικές σας φωτογραφίες!** Έχεις δύο επιλογές: ✔️  Ανέβασε τες εδώ στη πλατφόρμα ✔️  Στο τέλος της καταχώρισης θα σου εμφανιστεί ένα link, κάντο copy και ανέβασε τες εκεί με την ησυχία σου")
 
 
 # =============== FORM =============== #
 with st.form("party_form"):
-    name = st.selectbox("Το όνομά σου:", [""] + all_names)
-    color_choice = st.selectbox("Επίλεξε χρώμα φούτερ:", color_options)
-    sizes = st.selectbox("Επίλεξε μέγεθος:", all_sizes)
+    name = st.selectbox("**Το όνομά σου:**", [""] + all_names)
+    color_choice = st.selectbox("**Επίλεξε χρώμα φούτερ:**", color_options)
+    sizes = st.selectbox("**Επίλεξε μέγεθος:**", all_sizes)
 
-    st.subheader("Διάλεξε ένα από αυτά τα 4 σχέδια για να τυπώσεις στο φούτερ:")
-    chosen_design = st.radio("Ποιο σχέδιο θες να βάλουμε;", ["1o", "2o", "3o", "4o"], horizontal=True)
+    # st.subheader("Διάλεξε ένα από αυτά τα 4 σχέδια για να τυπώσεις στο φούτερ:")
+    chosen_design = st.radio("**Επίλεξε σχέδιο:**", ["1o", "2o", "3o", "4o"], horizontal=True)
 
     cols = st.columns(4)
     for i, (url, label) in enumerate(zip(image_urls, ["1o", "2o", "3o", "4o"])):
@@ -296,9 +296,9 @@ with st.form("party_form"):
             img = Image.open(BytesIO(response.content))
             st.image(img, caption=label, width=120)
 
-    wish = st.text_area("Γράψε μας μια ευχή για τη νύφη:")
-    story = st.text_area("Πες μας πώς γνωριστήκατε ή μια ιστορία:")
-    uploaded_files = st.file_uploader("Ανέβασε φωτογραφίες (πολλαπλές):", accept_multiple_files=True)
+    wish = st.text_area("**Γράψε μας μια ευχή για τη νύφη:**")
+    story = st.text_area("**Πες μας πώς γνωριστήκατε ή μια ιστορία:**")
+    uploaded_files = st.file_uploader("**Ανέβασε φωτογραφίες αλλιώς πάρε το link:**", accept_multiple_files=True)
 
     submitted = st.form_submit_button("Submit")
 
@@ -343,7 +343,7 @@ if submitted:
         #             "<h3 style='color:green;'>🎉 Experiment completed successfully!</h3>",
         #             unsafe_allow_html=True
         #         )
-        st.success(f"Ευχαριστούμε πολύ, {name} , ανυπομονούμε για την ημέρα εκείνη! Μην ξεχάσεις να κάνεις copy paste το link που θα ανεβάσεις τις φωτογραφίες 🎉")
+        st.success(f"Ευχαριστούμε πολύ, {name} , ανυπομονούμε για την ημέρα εκείνη! Μην ξεχάσεις να κάνεις copy το link για τις φωτογραφίες 🎉")
         # st.write("### Η συμμετοχή σου έχει ως εξής:")
         # st.write(pd.DataFrame([new_data]))
 
