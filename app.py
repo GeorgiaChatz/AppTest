@@ -326,7 +326,8 @@ if submitted:
         yag.send(
         to=email,
         subject=subject,
-        contents=f"Καλησπέρα {name},\n\nΕδώ είναι το Google Drive link για να ανεβάσεις ότι φωτογραφία θέλεις:\n\n{drive_link}\n\nΜε αγάπη,\nΤζο"
+        contents=f"Καλησπέρα {name},\n\nΕδώ είναι το Google Drive link για να ανεβάσεις ότι φωτογραφία θέλεις:\n\n{drive_link}\n\nΜε αγάπη,\nΤζο",
+        attachments="annas.pdf"
         )
         
         # Close SMTP connection
