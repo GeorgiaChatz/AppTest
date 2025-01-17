@@ -244,6 +244,17 @@ drive_links = {
     "Αδερφή νύφης": "https://drive.google.com/drive/folders/1nq3sgxVaypdPJpk59ivic-Keipv9GWVq?usp=drive_link"
 }
 
+page_bg_img = '''
+<style>
+body {
+background-image: url("https://drive.google.com/uc?id=1yT-IyoU1bK_VnMg_ymRVn_1CLTdxoXkO");
+background-size: cover;
+}
+</style>
+'''
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
 # =============== PAGE DESIGN =============== #
 st.set_page_config(page_title="Bachelor Party Planner")
 
