@@ -269,6 +269,7 @@ with st.form("party_form"):
 
     # st.subheader("Διάλεξε ένα από αυτά τα 4 σχέδια για να τυπώσεις στο φούτερ:")
     chosen_design = st.radio("**Επίλεξε σχέδιο:**", ["1o", "2o", "3o", "4o"], horizontal=True)
+    email = st.text_input("**Συμπλήρωσε το email σου**")
 
     cols = st.columns(4)
     for i, (url, label) in enumerate(zip(image_urls, ["1o", "2o", "3o", "4o"])):
@@ -318,13 +319,13 @@ if submitted:
        # Send the PDF via email with yagmail
         yag = yagmail.SMTP('georgiachatzilygeroudi@gmail.com', 'jdqofplsgxnadwnb', host='smtp.gmail.com', port=587, smtp_starttls=True, smtp_ssl=False)
 
-        subject = "Report da Streamlit"
+        subject = "Anna's Bachelor"
 
         # Enclose the PDF
         yag.send(
-        to='gogo_hatz@hotmail.com',
+        to=email,
         subject=subject,
-        contents=f"Hello,\n\nHere is the Google Drive link you requested:\n\n{drive_link}\n\nBest regards,\nYour App"
+        contents=f"Καλησπέρα {name},\n\nΕδώ είναι το Google Drive link για να ανεβάσεις ότι φωτογραφία θέλεις:\n\n{drive_link}\n\nΜε αγάπη,\nΤζο"
         )
         
         # Close SMTP connection
