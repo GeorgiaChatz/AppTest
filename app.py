@@ -316,7 +316,7 @@ if submitted:
         drive_link = drive_links[name]
         st.markdown(f"[Αυτό είναι το google drive link σου]({drive_link})")
        # Send the PDF via email with yagmail
-        yag = yagmail.SMTP('georgiachatzilygeroudi@gmail.com', 'Georgia@@1997!', host='smtp.gmail.com', port=587, smtp_starttls=True, smtp_ssl=False)
+        yag = yagmail.SMTP('georgiachatzilygeroudi@gmail.com', 'jdqofplsgxnadwnb', host='smtp.gmail.com', port=587, smtp_starttls=True, smtp_ssl=False)
 
         subject = "Report da Streamlit"
 
