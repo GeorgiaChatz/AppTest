@@ -266,10 +266,11 @@ with st.form("party_form"):
     name = st.selectbox("**Το όνομά σου:**", [""] + all_names)
     color_choice = st.selectbox("**Επίλεξε χρώμα φούτερ:**", color_options)
     sizes = st.selectbox("**Επίλεξε μέγεθος:**", all_sizes)
+    email = st.text_input("**Συμπλήρωσε το email σου**")
 
     # st.subheader("Διάλεξε ένα από αυτά τα 4 σχέδια για να τυπώσεις στο φούτερ:")
     chosen_design = st.radio("**Επίλεξε σχέδιο:**", ["1o", "2o", "3o", "4o"], horizontal=True)
-    email = st.text_input("**Συμπλήρωσε το email σου**")
+    
 
     cols = st.columns(4)
     for i, (url, label) in enumerate(zip(image_urls, ["1o", "2o", "3o", "4o"])):
@@ -282,7 +283,7 @@ with st.form("party_form"):
     story = st.text_area("**Πες μας πώς γνωριστήκατε ή μια ιστορία:**")
     uploaded_files = st.file_uploader("**Ανέβασε φωτογραφίες αλλιώς πάρε το link:**", accept_multiple_files=True)
 
-    submitted = st.form_submit_button("Submit")
+    submitted = st.form_submit_button("Φύγαμε")
 
 # =============== FORM SUBMISSION =============== #
 if submitted:
