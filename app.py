@@ -247,7 +247,7 @@ drive_links = {
 # =============== PAGE DESIGN =============== #
 st.set_page_config(page_title="Bachelor Party Planner")
 
-ef set_background(image_url):
+def set_background(image_url):
     """Set a background image using HTML and CSS for Streamlit Cloud."""
     st.markdown(
         f'''
