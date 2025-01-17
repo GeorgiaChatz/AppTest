@@ -283,7 +283,7 @@ with st.form("party_form"):
     story = st.text_area("**Πες μας πώς γνωριστήκατε ή μια ιστορία:**")
     uploaded_files = st.file_uploader("**Ανέβασε φωτογραφίες αλλιώς πάρε το link:**", accept_multiple_files=True)
 
-    submitted = st.form_submit_button("Φύγαμε")
+    submitted = st.form_submit_button("Φύγαμε 🍻")
 
 # =============== FORM SUBMISSION =============== #
 if submitted:
@@ -317,21 +317,33 @@ if submitted:
                     
         drive_link = drive_links[name]
         st.markdown(f"[Αυτό είναι το google drive link σου]({drive_link})")
-       # Send the PDF via email with yagmail
-        yag = yagmail.SMTP('georgiachatzilygeroudi@gmail.com', 'jdqofplsgxnadwnb', host='smtp.gmail.com', port=587, smtp_starttls=True, smtp_ssl=False)
 
-        subject = "Anna's Bachelor"
-
-        # Enclose the PDF
-        yag.send(
-        to=email,
-        subject=subject,
-        contents=f"Καλησπέρα {name},\n\nΕδώ είναι το Google Drive link για να ανεβάσεις ότι φωτογραφία θέλεις:\n\n{drive_link}\n\nΜε αγάπη,\nΤζο",
-        attachments="annas.pdf"
-        )
-        
-        # Close SMTP connection
-        yag.close()
+        if email.strip() != "": 
+           # Send the PDF via email with yagmail
+            yag = yagmail.SMTP('georgiachatzilygeroudi@gmail.com', 'jdqofplsgxnadwnb', host='smtp.gmail.com', port=587, smtp_starttls=True, smtp_ssl=False)
+    
+            subject = "Anna's Bachelor"
+    
+            # Enclose the PDF
+            yag.send(
+            to=email,
+            subject=subject,
+            contents=f"Καλησπέρα {name},\n\n Σου έχω επισυνάψει το πρόγραμμα και τις λεπτομέρειες στο αρχείο pdf και εδώ είναι το Google Drive link για να ανεβάσεις ότι φωτογραφία θέλεις:\n\n{drive_link}\n\nΜε αγάπη,\nΤζο",
+            attachments="Bachelorette.pdf"
+            )
+            
+            # Close SMTP connection
+            yag.close()
+        else:
+            st.warning("Δεν δόθηκε email. Μπορείτε να κατεβάσετε το PDF από εδώ:")
+            with open("Bachelorette.pdf", "rb") as pdf_file:  # Update the path
+                pdf_bytes = pdf_file.read()
+                st.download_button(
+                    label="Κατεβάστε το PDF",
+                    data=pdf_bytes,
+                    file_name="Bachelorette.pdf",
+                    mime="application/pdf"
+                )
 
         # email = st.text_input("Δώσε μας το email σου για να σου στείλουμε το link:")
         # send_email(email, drive_link)
@@ -339,7 +351,7 @@ if submitted:
         #             "<h3 style='color:green;'>🎉 Experiment completed successfully!</h3>",
         #             unsafe_allow_html=True
         #         )
-        st.success(f"Ευχαριστούμε πολύ, {name} , ανυπομονούμε για την ημέρα εκείνη! Μην ξεχάσεις να κάνεις copy το link για τις φωτογραφίες 🎉")
+        st.success(f"Ευχαριστούμε πολύ, {name} , ανυπομονούμε για την ημέρα εκείνη! 🎉")
         # st.write("### Η συμμετοχή σου έχει ως εξής:")
         # st.write(pd.DataFrame([new_data]))
 
