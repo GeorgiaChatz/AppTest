@@ -279,7 +279,7 @@ with st.form("party_form"):
         with cols[i]:
             response = requests.get(url)
             img = Image.open(BytesIO(response.content))
-            st.image(img, caption=label, width=120)
+            st.image(img, caption=label, width=180)
 
     wish = st.text_area("**Γράψε μας μια ευχή για τη νύφη:**")
     story = st.text_area("**Πες μας πώς γνωριστήκατε ή μια ιστορία:**")
