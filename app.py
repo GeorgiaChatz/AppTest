@@ -268,6 +268,9 @@ with st.form("party_form"):
     name = st.selectbox("**Το όνομά σου:**", [""] + all_names)
     color_choice = st.selectbox("**Επίλεξε χρώμα φούτερ:**", color_options)
     sizes = st.selectbox("**Επίλεξε μέγεθος:**", all_sizes)
+    car_choice = st.radio(
+    "Διαθέτεις αυτοκίνητο;",
+    ("Ναι", "Όχι"))
     email = st.text_input("**Συμπλήρωσε το email σου**")
 
     # st.subheader("Διάλεξε ένα από αυτά τα 4 σχέδια για να τυπώσεις στο φούτερ:")
