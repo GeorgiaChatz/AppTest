@@ -300,6 +300,7 @@ if submitted:
             "Name": normalize_text(name),
             "Color Preference": normalize_text(color_choice),
             "Size": normalize_text(sizes),
+            "Car": normalize_text(car_choice),
             "Selected Design": normalize_text(chosen_design),
             "Wish": normalize_text(wish),
             "Story": normalize_text(story),
