@@ -180,7 +180,7 @@ def upload_to_github(file_content, file_path, commit_message, token, repo_owner,
 # Hosted design image URLs (replace with actual URLs)
 image_urls = [
     "https://drive.google.com/uc?id=1l7HBURTAvJLJnDzh6M90uZIErI_9IVDS",
-    "https://drive.google.com/uc?id=1h0kvNWesJdBY6Nr4YGQEWMRjzFcZfT2Z"
+    "https://drive.google.com/uc?id=1XgLZSAbiTMvorvnWux_bbnHZcHs7BZ19"
     # "https://drive.google.com/uc?id=1YhCGFUwu9dIeH3SuVac8fHM0HMm9XlcN",
     # "https://drive.google.com/uc?id=1bFg3BR860tg9xyMucg3I609X3owo-ALZ",
 ]
@@ -256,7 +256,7 @@ st.header("Καλωσήρθατε στο Bachelor Party App!")
 st.subheader("Παρακάτω είναι τα βήματα για να μην μπερδευτείς!📑")
 st.write("1) **Διάλεξε το όνομά σου** από τη λίστα παρακάτω")
 st.write("2) **Δες το φούτερ** που θα φορέσουμε: ➜ [Φούτερ & Διαθέσιμα χρώματα](https://www.livardas.gr/el/fouter/2077-17147-sols-slam-13251.html)")
-st.write("3) **Διάλεξε ένα από τα 4 σχέδια** που θέλεις να τυπώσουμε στο φούτερ σου 🖋")
+st.write("3) **Διάλεξε ένα από τα 2 σχέδια** που θέλεις να τυπώσουμε στο φούτερ σου 🖋")
 st.write("4) **Γράψε μια ευχή** για την Αννούλα και τη νέα της αρχή 💝")
 st.write("5) **Γράψε πώς γνωριστήκατε** ή μια ιστορία που θέλεις να μοιραστείς👭")
 st.write("6) **Ανέβασε προσωπικές σας φωτογραφίες!** Έχεις δύο επιλογές: \n\n ✔️  Ανέβασε τες εδώ στη πλατφόρμα \n\n ✔️  Στο τέλος της καταχώρισης θα σου εμφανιστεί ένα link, κάντο copy και ανέβασε τες εκεί με την ησυχία σου 📸")
@@ -271,11 +271,11 @@ with st.form("party_form"):
     email = st.text_input("**Συμπλήρωσε το email σου**")
 
     # st.subheader("Διάλεξε ένα από αυτά τα 4 σχέδια για να τυπώσεις στο φούτερ:")
-    chosen_design = st.radio("**Επίλεξε σχέδιο:**", ["1o", "2o", "3o", "4o"], horizontal=True)
+    chosen_design = st.radio("**Επίλεξε σχέδιο:**", ["1o", "2o"], horizontal=True)
     
 
     cols = st.columns(4)
-    for i, (url, label) in enumerate(zip(image_urls, ["1o", "2o", "3o", "4o"])):
+    for i, (url, label) in enumerate(zip(image_urls, ["1o", "2o"])):
         with cols[i]:
             response = requests.get(url)
             img = Image.open(BytesIO(response.content))
