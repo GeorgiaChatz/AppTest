@@ -179,10 +179,10 @@ def upload_to_github(file_content, file_path, commit_message, token, repo_owner,
 
 # Hosted design image URLs (replace with actual URLs)
 image_urls = [
-    "https://drive.google.com/uc?id=1QFgXKzYro_YuFeyHQ1rlN0SPWecnhXtF",
-    "https://drive.google.com/uc?id=19WNVp-0ceDcnLgBF75tseF_gmA11hHXW",
-    "https://drive.google.com/uc?id=1YhCGFUwu9dIeH3SuVac8fHM0HMm9XlcN",
-    "https://drive.google.com/uc?id=1bFg3BR860tg9xyMucg3I609X3owo-ALZ",
+    "https://drive.google.com/uc?id=1l7HBURTAvJLJnDzh6M90uZIErI_9IVDS",
+    "https://drive.google.com/uc?id=1h0kvNWesJdBY6Nr4YGQEWMRjzFcZfT2Z"
+    # "https://drive.google.com/uc?id=1YhCGFUwu9dIeH3SuVac8fHM0HMm9XlcN",
+    # "https://drive.google.com/uc?id=1bFg3BR860tg9xyMucg3I609X3owo-ALZ",
 ]
 
 # GitHub credentials and repo details
