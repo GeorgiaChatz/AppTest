@@ -193,7 +193,7 @@ REPO_NAME = "AppTest"                     # Replace with your repo name
 all_names = [
     "Aspa", "Μαρία Παλλικάρη", "Μαριάννα Στεφανοπούλου", "Θεοδώρα", "Χριστίνα",
     "Μαρία Κανναβού", "Άννα Κανναβού", "Άννα Μπουργανού", "Μαρία Παπαγεωργίου",
-    "Αριάδνη", "Μαρία Φυτράκη", "Στεφανία", "Έλλη", "Μπρουνίλντα", "Αναστασία Κουμπάρα",
+    "Αριάδνη", "Μαρία Φυτράκη", "Στεφανία", "Έλλη", "Μπρουνίλντα", "Αναστασία",
     "Μαρία Μητροπούλου", "Μιχαέλα", "Ιωάννα"
 ]
 
@@ -222,7 +222,7 @@ drive_links = {
     "Αριάδνη": "https://drive.google.com/drive/folders/1ndrBXu0JsgXRwT1yvQcBr0RUsqJ2PU7Y?usp=drive_link",
     "Μαρία Φυτράκη": "https://drive.google.com/drive/folders/1ndrBXu0JsgXRwT1yvQcBr0RUsqJ2PU7Y?usp=drive_link",
     "Μιχαέλα": "https://drive.google.com/drive/folders/1pJgVjoWIWV07_ygCyOadGHDhG9ZL22vz?usp=drive_link",
-    "Αδερφή νύφης": "https://drive.google.com/drive/folders/1nq3sgxVaypdPJpk59ivic-Keipv9GWVq?usp=drive_link"
+    "Ιωάννα": "https://drive.google.com/drive/folders/1nq3sgxVaypdPJpk59ivic-Keipv9GWVq?usp=drive_link"
 }
 
 # =============== PAGE DESIGN =============== #
